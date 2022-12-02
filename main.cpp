@@ -26,6 +26,16 @@ char askForAns(std::string question) {
     return answer;
 }
 
+int askForNumber() {
+    int num = -1;
+
+    do {
+        std::cout << "";
+    } while(num < 0 || num > 8 );
+
+    return num;
+}
+
 int main() {
 
     return 0;

@@ -10,6 +10,13 @@ void displayBoard(const int* board) {
     std::cout << board[6] << " | "  << board[7] << " | "  << board[8] << std::endl << std::endl;
 }
 
+void welcomeMessage() {
+    std::cout << "\n\n";
+    std::cout << "------ Welcome to the Emsi mini project - Tic Tac Toe game ------ \n\n";
+    std::cout << "Make your move known by entering a number, 0 - 8. \n";
+    std::cout << "The numbers corresponds to the emsi desired board position, as illustrated: \n\n";
+}
+
 int main() {
 
     return 0;

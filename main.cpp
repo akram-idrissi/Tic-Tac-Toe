@@ -17,6 +17,15 @@ void welcomeMessage() {
     std::cout << "The numbers corresponds to the emsi desired board position, as illustrated: \n\n";
 }
 
+char askForAns(std::string question) {
+    char answer = '\0';
+    do {
+        std::cout << "";
+    } while(answer != 'y' && answer != 'n' );
+
+    return answer;
+}
+
 int main() {
 
     return 0;

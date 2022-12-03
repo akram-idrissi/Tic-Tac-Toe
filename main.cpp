@@ -5,27 +5,45 @@ const char O = 'O';
 const char EMPTY = ' ';
 const char TIE = 'T';
 const char NO_ONE = 'N';
-const char board[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+char board[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
 // prototypes
 void instructions();
+void displayBoard(const char* board);
+void announceWinner(char winner, char computer, char human);
+bool isLegal(const char* board, int move);
 char askYesNo(std::string question);
-int askNumber(std::string question, int high, int low = 0);
 char humanPiece();
 char opponent(char piece);
-void displayBoard(const char* board);
 char winner(const char* board);
-bool isLegal(const char* board, int move);
+int askNumber(std::string question, int high, int low = 0);
 int humanMove(const char* board, char human);
 int computerMove(const char* board, char computer);
-void announceWinner(char winner, char computer, char human);
 
 int main() {
+
+    int move;
+    char turn = X;
+    instructions();
+    const int NUM_SQUARES = 9;
+    char human = humanPiece();
+    char computer = opponent(human);
+
     
     while(winner(board) == NO_ONE) {
-
+        if(move = human) {
+            move = humanMove(board, human);
+            board[move] = human;
+        } 
+        else {
+            move = computerMove(board, human);
+            board[move] = computer;
+        }
+        displayBoard(board);
+        turn = opponent(turn);
     }
 
+    announceWinner(winner(board), computer, human);
 
     return 0;
 }

@@ -61,7 +61,5 @@ void displayBoard(const char* board) {
     std::cout << board[3] << " | " << board[4] << " | " << board[5] << std::endl;
     std::cout << "---------";
     std::cout << board[6] << " | " << board[7] << " | " << board[8] << std::endl;
-
-
 }
 

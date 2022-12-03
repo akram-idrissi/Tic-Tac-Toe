@@ -132,3 +132,15 @@ char winner(const char* board) {
     }   
 }
 
+int askNumber(std::string question, int high, int low) {
+    int move = -1;
+    question = "Where will you move? \n";
+
+    do {
+        std::cout << question << std::endl;
+        std::cin >> move;
+    } while(move < 1 || move > 8);
+
+    return move;
+}
+

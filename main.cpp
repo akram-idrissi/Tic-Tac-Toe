@@ -92,3 +92,7 @@ char askYesNo(std::string question) {
     return answer;
 }
 
+char humanPiece() {
+    char answer = askYesNo("");
+    return answer == 'y' ? X : O; 
+}

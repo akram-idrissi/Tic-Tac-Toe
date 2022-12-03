@@ -16,7 +16,7 @@ char askYesNo(std::string question);
 char humanPiece();
 char opponent(char piece);
 char winner(const char* board);
-int askNumber(std::string question, int high, int low = 0);
+int askNumber(int high, int low, std::string question);
 int humanMove(const char* board, char human);
 int computerMove(const char* board, char computer);
 
@@ -132,9 +132,8 @@ char winner(const char* board) {
     }   
 }
 
-int askNumber(std::string question, int high, int low) {
+int askNumber(int high, int low=1, std::string question="Where will you move? \n") {
     int move = -1;
-    question = "Where will you move? \n";
 
     do {
         std::cout << question << std::endl;

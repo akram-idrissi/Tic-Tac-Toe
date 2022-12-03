@@ -14,9 +14,15 @@ int humanMove(const char* board[], char human);
 int computerMove(const char* board[], char computer);
 void announceWinner(char winner, char computer, char human);
 
-
 int main() {
-
+    instructions();
     return 0;
+}
+
+void instructions() {
+    std::cout << "\n";
+    std::cout << "------ Welcome to the Tic Tac Toe game - Emsi mini project ------ \n\n";
+    std::cout << "Make your move known by entering a number, 0 - 8. \n";
+    std::cout << "The numbers corresponds to the emsi desired board position, as illustrated: \n\n";
 }
 

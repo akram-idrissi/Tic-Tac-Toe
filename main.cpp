@@ -1,5 +1,10 @@
 #include <iostream>
 
+const char X = 'X';
+const char O = 'O';
+const char EMPTY = ' ';
+const char TIE = 'T';
+const char NO_ONE = 'N';
 const int board[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 void instructions();
@@ -15,7 +20,7 @@ int computerMove(const char* board[], char computer);
 void announceWinner(char winner, char computer, char human);
 
 int main() {
-    instructions();
+   
     return 0;
 }
 

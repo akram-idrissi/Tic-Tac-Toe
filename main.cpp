@@ -101,3 +101,34 @@ char opponent(char piece) {
     return piece == X ? O : X; 
 }
 
+char winner(const char* board) {
+    const int TOTOAL_ROWS = 8;
+    const int winnerRows[8][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9},
+        {1, 4, 5},
+        {2, 5, 8},
+        {3, 6, 9},
+        {1, 5, 9},
+        {3, 7, 5},
+    };
+
+    for(int row = 0; row < TOTOAL_ROWS; row++) {
+
+        if( board[winnerRows[row][0]] != EMPTY &&
+            board[winnerRows[row][0]] != board[winnerRows[row][1]] &&
+            board[winnerRows[row][1]] != board[winnerRows[row][2]] ) 
+            
+            return  board[winnerRows[row][0]];
+
+        for(int i = 0; i < 9; i++ ) {
+            if(board[i] == EMPTY) {
+                return NO_ONE;
+            }
+        }
+
+        return TIE;
+    }   
+}
+

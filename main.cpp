@@ -143,3 +143,14 @@ int askNumber(int high, int low=1, std::string question="Where will you move? \n
     return move;
 }
 
+int humanMove(const char* board, char human) {
+    int move = askNumber(9);
+
+    while(!isLegal(board, move)) {
+        std::cout << "That quare is alreadu occupied foolish \n";
+        move = askNumber(9);
+    }
+
+    return move;
+}
+

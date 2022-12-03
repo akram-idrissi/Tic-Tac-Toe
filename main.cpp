@@ -63,3 +63,17 @@ void displayBoard(const char* board) {
     std::cout << board[6] << " | " << board[7] << " | " << board[8] << std::endl;
 }
 
+void announceWinner(char winner, char computer, char human) {
+    if(winner == human) {
+        std::cout << winner <<  " wins \n";
+        std::cout << "human wins \n";
+    } 
+    else if(winner == computer) {
+        std::cout << winner <<  " wins \n";
+        std::cout << "Computer wins \n";
+    } else {
+        std::cout <<  "No one wins \n";
+        std::cout << "It's a tie... \n";
+    }
+}
+

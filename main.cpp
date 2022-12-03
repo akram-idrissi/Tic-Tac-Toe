@@ -96,3 +96,8 @@ char humanPiece() {
     char answer = askYesNo("");
     return answer == 'y' ? X : O; 
 }
+
+char opponent(char piece) {
+    return piece == X ? O : X;
+}
+

@@ -98,6 +98,6 @@ char humanPiece() {
 }
 
 char opponent(char piece) {
-    return piece == X ? O : X;
+    return piece == X ? O : X; 
 }
 

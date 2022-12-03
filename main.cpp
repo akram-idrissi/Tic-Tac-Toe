@@ -77,3 +77,7 @@ void announceWinner(char winner, char computer, char human) {
     }
 }
 
+bool isLegal(const char* board, int move) {
+    return board[move] == EMPTY;
+}
+

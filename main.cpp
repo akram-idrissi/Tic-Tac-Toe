@@ -81,11 +81,11 @@ bool isLegal(const char* board, int move) {
     return board[move] == EMPTY;
 }
 
-char askYesNo(std::string question) {
+char askYesNo(std::string question = "Do you want to start first ? \n ") {
     int answer = '\0';
 
     do {
-        std::cout << "Do you want to start first ? \n ";
+        std::cout << question << std::endl;
         std::cin >> answer;
     } while(answer != 'y' && answer != 'n');
 

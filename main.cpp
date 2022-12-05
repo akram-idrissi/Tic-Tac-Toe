@@ -18,7 +18,7 @@ char opponent(char piece);
 char winner(const char* board);
 int askNumber(int high, int low, std::string question);
 int humanMove(const char* board, char human);
-int computerMove(const char* board, char computer);
+int computerMove(char* board, char computer);
 
 int main() {
 

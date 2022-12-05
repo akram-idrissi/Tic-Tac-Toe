@@ -25,18 +25,17 @@ int main() {
     int move;
     char turn = X;
     instructions();
-    const int NUM_SQUARES = 9;
     char human = humanPiece();
     char computer = opponent(human);
 
-    
+    displayBoard(board);
     while(winner(board) == NO_ONE) {
-        if(move = human) {
+        if(turn == human) {
             move = humanMove(board, human);
             board[move] = human;
         } 
         else {
-            move = computerMove(board, human);
+            move = computerMove(board, computer);
             board[move] = computer;
         }
         displayBoard(board);

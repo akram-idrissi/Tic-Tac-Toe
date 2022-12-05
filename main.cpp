@@ -154,3 +154,42 @@ int humanMove(const char* board, char human) {
     return move;
 }
 
+int computerMove(char* board, char computer) {
+    int move = 0;
+    bool found = false;
+
+    while(!found && move < 9 ) {
+        board[move] = computer;
+        found = winner(board) == computer;
+        board[move] = EMPTY;
+
+        if(!found) ++move;
+    }
+
+    if(!found) {
+        move = 0;
+        char human = opponent(computer);
+        
+        while(!found && move < 9 ) {
+            board[move] = human;
+            found = winner(board) == human;
+            board[move] = EMPTY;
+
+            if(!found) ++move;
+        }
+    }
+
+    if(!found) {
+        int i = 0;
+        move = 0;
+        const int BEST_MOVES[] = {5, 1, 3, 7, 9, 2, 4, 6, 8};
+        while(!found && i < 9) {
+            move = BEST_MOVES[i];
+            if(isLegal(board, move)) found = true;
+            i++;
+        }
+    }
+
+    return move;
+}
+

@@ -24,11 +24,12 @@ int main() {
 
     int move;
     char turn = X;
-    instructions();
     char human = humanPiece();
     char computer = opponent(human);
 
+    instructions();
     displayBoard(board);
+    
     while(winner(board) == NO_ONE) {
         if(turn == human) {
             move = humanMove(board, human);
@@ -127,8 +128,9 @@ char winner(const char* board) {
             }
         }
 
-        return TIE;
     }   
+    
+    return TIE;
 }
 
 int askNumber(int high, int low=1, std::string question="Where will you move? \n") {

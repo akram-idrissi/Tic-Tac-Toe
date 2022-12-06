@@ -150,7 +150,7 @@ int humanMove(const char* board, char human) {
     int move = askNumber(9);
 
     while(!isLegal(board, move)) {
-        std::cout << "That quare is alreadu occupied foolish \n";
+        std::cout << "That square is already occupied foolish \n";
         move = askNumber(9);
     }
 

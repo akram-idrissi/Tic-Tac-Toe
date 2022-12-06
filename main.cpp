@@ -1,11 +1,21 @@
 #include <iostream>
 #include <string>
 
-const char X = 'X';
-const char O = 'O';
-const char EMPTY = ' ';
-const char TIE = 'T';
-const char NO_ONE = 'N';
+enum Piece {
+    X = 'X',
+    O = 'O'
+};
+
+enum Winner {
+    EMPTY = ' ',
+    TIE = 'T',
+    NO_ONE = 'N'
+};
+
+enum Size {
+    BOARD_SIZE = 9,
+};
+
 char board[] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
 // prototypes
@@ -128,7 +138,7 @@ char winner(const char* board) {
             return  board[winnerRows[row][0]];
     }   
 
-    for(int i = 0; i < 9; i++ ) {
+    for(int i = 0; i < BOARD_SIZE; i++ ) {
         if(board[i] == EMPTY) {
             return NO_ONE;
         }
@@ -163,7 +173,7 @@ int computerMove(char* board, char computer) {
     int move = 0;
     bool found = false;
 
-    while(!found && move < 9) {
+    while(!found && move < BOARD_SIZE) {
         if(isLegal(board, move)) {
             board[move] = computer;
             found = winner(board) == computer;
@@ -178,7 +188,7 @@ int computerMove(char* board, char computer) {
         move = 0;
         char human = opponent(computer);
         
-        while(!found && move < 9) {
+        while(!found && move < BOARD_SIZE) {
             if(isLegal(board, move)) {
                 board[move] = human;
                 found = winner(board) == human;
@@ -193,7 +203,7 @@ int computerMove(char* board, char computer) {
         int i = 0;
         move = 0;
         const int BEST_MOVES[] = {4, 0, 2, 6, 8, 1, 3, 5, 7};
-        while(!found && i < 9) {
+        while(!found && i < BOARD_SIZE) {
             move = BEST_MOVES[i];
             if(isLegal(board, move)) found = true;
             i++;

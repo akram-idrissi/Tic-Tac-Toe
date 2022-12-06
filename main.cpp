@@ -135,13 +135,13 @@ char winner(const char* board) {
     return TIE;
 }
 
-int askNumber(int high, int low=1, std::string question="Where will you move? \n") {
-    int move = -1;
+int askNumber(int high, int low=0, std::string question="Where will you move? \n") {
+    int move;
 
     do {
         std::cout << question;
         std::cin >> move;
-    } while(move < 1 || move > 8);
+    } while(move < low || move > high);
 
     return move;
 }

@@ -50,10 +50,11 @@ int main() {
 }
 
 void instructions() {
-    std::cout << "\n";
-    std::cout << "------ Welcome to the Tic Tac Toe game - Emsi mini project ------ \n\n";
+    std::cout << "\n ------ Welcome to the Tic Tac Toe game - Emsi mini project ------ \n\n";
     std::cout << "Make your move known by entering a number, 0 - 8. \n";
-    std::cout << "The numbers corresponds to the emsi desired board position, as illustrated: \n\n";
+    std::cout << "The numbers corresponds to the desired board position, as illustrated: \n\n";
+    char board[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8'};
+    displayBoard(board);
 }
 
 void displayBoard(const char* board) {

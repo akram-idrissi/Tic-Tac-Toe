@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 const char X = 'X';
 const char O = 'O';
@@ -19,10 +20,9 @@ char opponent(char piece);
 char winner(const char* board);
 int askNumber(int high, int low, std::string question);
 int humanMove(const char* board, char human);
-int computerMove(char* board, char computer);
+int computerMove(char board[], char computer);
 
 int main() {
-
     int move;
     char turn = X;
 
@@ -30,7 +30,7 @@ int main() {
 
     char human = humanPiece();
     char computer = opponent(human);
-    
+
     while(winner(board) == NO_ONE) {
         if(turn == human) {
             move = humanMove(board, human);
@@ -53,8 +53,11 @@ void instructions() {
     std::cout << "\n ------ Welcome to the Tic Tac Toe game - Emsi mini project ------ \n\n";
     std::cout << "Make your move known by entering a number, 0 - 8. \n";
     std::cout << "The numbers corresponds to the desired board position, as illustrated: \n\n";
-    char board[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8'};
-    displayBoard(board);
+    std::cout << "   0 | 1 | 2"  << std::endl;
+    std::cout << "   ---------" << std::endl;
+    std::cout << "   3 | 4 | 5"  << std::endl;
+    std::cout << "   ---------" << std::endl;
+    std::cout << "   6 | 7 | 8"  << std::endl << std::endl;
 }
 
 void displayBoard(const char* board) {
@@ -62,7 +65,7 @@ void displayBoard(const char* board) {
     std::cout << "  " << "---------" << std::endl;
     std::cout << "  " << board[3] << " | " << board[4] << " | " << board[5] << std::endl;
     std::cout << "  " << "---------" << std::endl;
-    std::cout << "  " << board[6] << " | " << board[7] << " | " << board[8] << std::endl;
+    std::cout << "  " << board[6] << " | " << board[7] << " | " << board[8] << std::endl << std::endl;
 }
 
 void announceWinner(char winner, char computer, char human) {
@@ -84,7 +87,7 @@ bool isLegal(const char* board, int move) {
 }
 
 char askYesNo(std::string question = "Do you want to start first ? \n ") {
-    char answer = '\0';
+    char answer;
 
     do {
         std::cout << question;
@@ -106,31 +109,30 @@ char opponent(char piece) {
 char winner(const char* board) {
     const int TOTOAL_ROWS = 8;
     const int winnerRows[8][3] = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9},
-        {1, 4, 5},
+        {0, 1, 2},
+        {3, 4, 5},
+        {6, 7, 8},
+        {0, 3, 6},
+        {1, 4, 7},
         {2, 5, 8},
-        {3, 6, 9},
-        {1, 5, 9},
-        {3, 7, 5},
+        {0, 4, 8},
+        {2, 4, 6},
     };
 
     for(int row = 0; row < TOTOAL_ROWS; row++) {
 
         if( board[winnerRows[row][0]] != EMPTY &&
-            board[winnerRows[row][0]] != board[winnerRows[row][1]] &&
-            board[winnerRows[row][1]] != board[winnerRows[row][2]] ) 
+            board[winnerRows[row][0]] == board[winnerRows[row][1]] &&
+            board[winnerRows[row][1]] == board[winnerRows[row][2]] ) 
             
             return  board[winnerRows[row][0]];
-
-        for(int i = 0; i < 9; i++ ) {
-            if(board[i] == EMPTY) {
-                return NO_ONE;
-            }
-        }
-
     }   
+
+    for(int i = 0; i < 9; i++ ) {
+        if(board[i] == EMPTY) {
+            return NO_ONE;
+        }
+    }
     
     return TIE;
 }
@@ -161,10 +163,13 @@ int computerMove(char* board, char computer) {
     int move = 0;
     bool found = false;
 
-    while(!found && move < 8 ) {
-        board[move] = computer;
-        found = winner(board) == computer;
-        board[move] = EMPTY;
+    while(!found && move < 9) {
+        if(isLegal(board, move)) {
+            board[move] = computer;
+            found = winner(board) == computer;
+            board[move] = EMPTY;
+        }
+        
 
         if(!found) ++move;
     }
@@ -173,20 +178,22 @@ int computerMove(char* board, char computer) {
         move = 0;
         char human = opponent(computer);
         
-        while(!found && move < 8 ) {
-            board[move] = human;
-            found = winner(board) == human;
-            board[move] = EMPTY;
+        while(!found && move < 9) {
+            if(isLegal(board, move)) {
+                board[move] = human;
+                found = winner(board) == human;
+                board[move] = EMPTY;
+            }
 
             if(!found) ++move;
         }
-    }
+    }   
 
     if(!found) {
         int i = 0;
         move = 0;
         const int BEST_MOVES[] = {4, 0, 2, 6, 8, 1, 3, 5, 7};
-        while(!found && i < 8) {
+        while(!found && i < 9) {
             move = BEST_MOVES[i];
             if(isLegal(board, move)) found = true;
             i++;
@@ -195,4 +202,3 @@ int computerMove(char* board, char computer) {
 
     return move;
 }
-

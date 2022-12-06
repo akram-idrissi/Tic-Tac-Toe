@@ -139,7 +139,7 @@ int askNumber(int high, int low=1, std::string question="Where will you move? \n
     int move = -1;
 
     do {
-        std::cout << question << std::endl;
+        std::cout << question;
         std::cin >> move;
     } while(move < 1 || move > 8);
 

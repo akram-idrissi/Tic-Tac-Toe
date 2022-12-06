@@ -147,11 +147,11 @@ int askNumber(int high, int low=0, std::string question="Where will you move? \n
 }
 
 int humanMove(const char* board, char human) {
-    int move = askNumber(9);
+    int move = askNumber(8);
 
     while(!isLegal(board, move)) {
         std::cout << "That square is already occupied foolish \n";
-        move = askNumber(9);
+        move = askNumber(8);
     }
 
     return move;
@@ -161,7 +161,7 @@ int computerMove(char* board, char computer) {
     int move = 0;
     bool found = false;
 
-    while(!found && move < 9 ) {
+    while(!found && move < 8 ) {
         board[move] = computer;
         found = winner(board) == computer;
         board[move] = EMPTY;
@@ -173,7 +173,7 @@ int computerMove(char* board, char computer) {
         move = 0;
         char human = opponent(computer);
         
-        while(!found && move < 9 ) {
+        while(!found && move < 8 ) {
             board[move] = human;
             found = winner(board) == human;
             board[move] = EMPTY;
@@ -185,8 +185,8 @@ int computerMove(char* board, char computer) {
     if(!found) {
         int i = 0;
         move = 0;
-        const int BEST_MOVES[] = {5, 1, 3, 7, 9, 2, 4, 6, 8};
-        while(!found && i < 9) {
+        const int BEST_MOVES[] = {4, 0, 2, 6, 8, 1, 3, 5, 7};
+        while(!found && i < 8) {
             move = BEST_MOVES[i];
             if(isLegal(board, move)) found = true;
             i++;

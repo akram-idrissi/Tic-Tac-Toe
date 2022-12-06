@@ -64,9 +64,9 @@ void instructions() {
     std::cout << "Make your move known by entering a number, 0 - 8. \n";
     std::cout << "The numbers corresponds to the desired board position, as illustrated: \n\n";
     std::cout << "   0 | 1 | 2"  << std::endl;
-    std::cout << "   ---------" << std::endl;
+    std::cout << "   ---------"  << std::endl;
     std::cout << "   3 | 4 | 5"  << std::endl;
-    std::cout << "   ---------" << std::endl;
+    std::cout << "   ---------"  << std::endl;
     std::cout << "   6 | 7 | 8"  << std::endl << std::endl;
 }
 

@@ -20,7 +20,7 @@ char board[] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
 // prototypes
 void instructions();
-void displayBoard(const char* board);
+void displayBoard();
 void announceWinner(char winner, char computer, char human);
 bool isLegal(const char* board, int move);
 char askYesNo(std::string question);
@@ -50,7 +50,7 @@ int main() {
             board[move] = computer;
         }
         system("CLS");
-        displayBoard(board);
+        displayBoard();
         turn = opponent(turn);
     }
 
@@ -70,7 +70,7 @@ void instructions() {
     std::cout << "   6 | 7 | 8"  << std::endl << std::endl;
 }
 
-void displayBoard(const char* board) {
+void displayBoard() {
     std::cout << "  " << board[0] << " | " << board[1] << " | " << board[2] << std::endl;
     std::cout << "  " << "---------" << std::endl;
     std::cout << "  " << board[3] << " | " << board[4] << " | " << board[5] << std::endl;

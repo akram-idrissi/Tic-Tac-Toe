@@ -27,7 +27,7 @@ int main() {
     char turn = X;
 
     instructions();
-    
+
     char human = humanPiece();
     char computer = opponent(human);
     
@@ -87,7 +87,7 @@ char askYesNo(std::string question = "Do you want to start first ? \n ") {
     char answer = '\0';
 
     do {
-        std::cout << question << std::endl;
+        std::cout << question;
         std::cin >> answer;
     } while(answer != 'y' && answer != 'n');
 

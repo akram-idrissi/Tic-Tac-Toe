@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <vector>
 
 const char X = 'X';
 const char O = 'O';

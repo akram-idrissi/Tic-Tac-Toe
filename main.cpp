@@ -6,7 +6,7 @@ const char O = 'O';
 const char EMPTY = ' ';
 const char TIE = 'T';
 const char NO_ONE = 'N';
-char board[] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+char board[] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
 // prototypes
 void instructions();

@@ -25,11 +25,11 @@ int main() {
 
     int move;
     char turn = X;
-    char human = humanPiece();
-    char computer = opponent(human);
 
     instructions();
-    displayBoard(board);
+    
+    char human = humanPiece();
+    char computer = opponent(human);
     
     while(winner(board) == NO_ONE) {
         if(turn == human) {

@@ -39,6 +39,7 @@ int main() {
             move = computerMove(board, computer);
             board[move] = computer;
         }
+        system("CLS");
         displayBoard(board);
         turn = opponent(turn);
     }
@@ -131,7 +132,7 @@ char winner(const char* board) {
         if(board[i] == EMPTY) {
             return NO_ONE;
         }
-    }
+    }   
     
     return TIE;
 }

@@ -94,7 +94,7 @@ char askYesNo(std::string question = "Do you want to start first ? \n ") {
 }
 
 char humanPiece() {
-    char answer = askYesNo("");
+    char answer = askYesNo();
     return answer == 'y' ? X : O; 
 }
 
